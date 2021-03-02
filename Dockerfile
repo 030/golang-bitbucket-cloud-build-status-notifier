@@ -10,7 +10,7 @@ RUN apk add git && \
 
 FROM scratch
 COPY --from=builder /etc/passwd /etc/passwd
-COPY --from=builder /bcbsn /usr/local/bcbsn
+COPY --from=builder /bcbsn /usr/local/bin/bcbsn
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 USER $PROJECT
-ENTRYPOINT ["/usr/local/bcbsn"]
+ENTRYPOINT ["/usr/local/bin/bcbsn"]
